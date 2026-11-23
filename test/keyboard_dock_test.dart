@@ -1,3 +1,7 @@
+// Flutter 3.47 moved Material to package:material_ui, but that package needs
+// Flutter >=3.47 and we still support 3.32. Switch once the floor gets there.
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:keyboard_dock/keyboard_dock.dart';
