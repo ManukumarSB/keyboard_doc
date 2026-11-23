@@ -7,27 +7,31 @@ on:
 
 jobs:
   test:
-    name: flutter ${{ matrix.flutter }}
+    name: flutter ${{ matrix.channel }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        # Oldest supported + current stable. Keep in sync with pubspec.
-        flutter: ['3.32.0', 'stable']
+        # Oldest supported + current stable. Keep `min` in sync with pubspec.
+        include:
+          - channel: min
+            version: '3.32.0'
+          - channel: stable
+            version: ''
     steps:
       - uses: actions/checkout@v7
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: ${{ matrix.flutter == 'stable' && '' || matrix.flutter }}
           channel: stable
+          flutter-version: ${{ matrix.version }}
           cache: true
       - run: flutter pub get
       - run: dart format --output=none --set-exit-if-changed .
-        if: matrix.flutter == 'stable'
+        if: matrix.channel == 'stable'
       - run: flutter analyze
       - run: flutter test
       - name: test against lowest dependency versions
         run: flutter pub downgrade && flutter test
-        if: matrix.flutter == '3.32.0'
+        if: matrix.channel == 'min'
       - run: flutter pub publish --dry-run
-        if: matrix.flutter == 'stable'
+        if: matrix.channel == 'stable'
