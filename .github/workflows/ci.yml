@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: flutter ${{ matrix.flutter }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Oldest supported + current stable. Keep in sync with pubspec.
+        flutter: ['3.32.0', 'stable']
+    steps:
+      - uses: actions/checkout@v7
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter == 'stable' && '' || matrix.flutter }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed .
+        if: matrix.flutter == 'stable'
+      - run: flutter analyze
+      - run: flutter test
+      - name: test against lowest dependency versions
+        run: flutter pub downgrade && flutter test
+        if: matrix.flutter == '3.32.0'
+      - run: flutter pub publish --dry-run
+        if: matrix.flutter == 'stable'

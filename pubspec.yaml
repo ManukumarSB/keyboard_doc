@@ -1,0 +1,19 @@
+name: keyboard_dock
+description: Keeps a footer docked above the soft keyboard and the home indicator. Zero dependencies, just MediaQuery.
+version: 0.1.0
+homepage: https://github.com/manukumarsb7/keyboard_dock
+repository: https://github.com/manukumarsb7/keyboard_dock
+issue_tracker: https://github.com/manukumarsb7/keyboard_dock/issues
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=3.32.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
