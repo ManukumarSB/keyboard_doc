@@ -1,4 +1,5 @@
-/// Keeps a footer docked above the soft keyboard and the home indicator. Zero dependencies, just MediaQuery.
+/// Keeps a footer docked above the soft keyboard and the home indicator.
 library;
 
-// export 'src/...';
+export 'src/keyboard_dock.dart';
+export 'src/keyboard_visibility_builder.dart';
