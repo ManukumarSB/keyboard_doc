@@ -1,7 +1,7 @@
 # keyboard_dock
 
 [![pub package](https://img.shields.io/pub/v/keyboard_dock.svg)](https://pub.dev/packages/keyboard_dock)
-[![ci](https://github.com/manukumarsb7/keyboard_dock/actions/workflows/ci.yml/badge.svg)](https://github.com/manukumarsb7/keyboard_dock/actions/workflows/ci.yml)
+[![ci](https://github.com/ManukumarSB/keyboard_doc/actions/workflows/ci.yml/badge.svg)](https://github.com/ManukumarSB/keyboard_doc/actions/workflows/ci.yml)
 
 Keeps a footer, like a "Continue" button or a message input, docked at the
 bottom of the screen and riding on top of the soft keyboard when it opens.
