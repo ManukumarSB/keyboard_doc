@@ -17,3 +17,17 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+
+topics:
+  - keyboard
+  - widget
+  - layout
+  - ui
+
+screenshots:
+  - description: Footer above the home indicator with the keyboard closed.
+    path: doc/keyboard_closed.png
+  - description: Same footer riding on top of the keyboard.
+    path: doc/keyboard_open.png
+  - description: A toolbar that only shows while typing.
+    path: doc/toolbar.png
